@@ -1,18 +1,44 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector(".waitlist__form");
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      if (href === "#") {
+        e.preventDefault();
+        return;
+      }
+      
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
+  });
 
-  if (!form) return;
+  // Simple fade-in animation on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  };
 
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-    const name = data.name || "misafir";
-    alert(
-      `Teşekkürler ${name}! Calmcore beta ekibi en kısa sürede ${data.email || "sizinle"} iletişime geçecek. ` +
-        "Bu demo formu sunucuya veri göndermez."
-    );
-    form.reset();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  }, observerOptions);
+
+  // Observe cards and steps
+  document.querySelectorAll(".card, .step").forEach(el => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(20px)";
+    el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+    observer.observe(el);
   });
 });
-
