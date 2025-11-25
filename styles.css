@@ -47,6 +47,10 @@ img {
   padding: 4rem min(6vw, 5rem) 2rem;
 }
 
+.hero--app {
+  align-items: center;
+}
+
 .hero__content h1 {
   font-size: clamp(2.5rem, 6vw, 4rem);
   margin: 0.5rem 0;
@@ -113,6 +117,77 @@ img {
   background: linear-gradient(135deg, rgba(110, 242, 195, 0.08), rgba(255, 255, 255, 0));
 }
 
+.hero__stats {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.hero__stats strong {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--brand);
+}
+
+.mockup-card {
+  padding: 0;
+}
+
+.mockup {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.mockup__status {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.mockup__meter span {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.meter {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-top: 0.4rem;
+}
+
+.meter__fill {
+  width: 68%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--brand), #fff);
+}
+
+.mockup__chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.mockup__chips li {
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+}
+
 .hero__card ul {
   list-style: none;
   padding: 0;
@@ -125,6 +200,11 @@ img {
 .section {
   padding: 3rem min(6vw, 5rem);
   border-top: 1px solid var(--border);
+}
+
+.section__subtitle {
+  color: var(--muted);
+  max-width: 60ch;
 }
 
 .grid {
@@ -147,6 +227,10 @@ img {
   color: var(--muted);
 }
 
+.feature-grid .card {
+  min-height: 190px;
+}
+
 .contact {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -166,7 +250,10 @@ img {
 }
 
 .contact__form input,
-.contact__form textarea {
+.contact__form textarea,
+.waitlist__form input,
+.waitlist__form textarea,
+.waitlist__form select {
   width: 100%;
   padding: 0.9rem 1rem;
   border-radius: 0.9rem;
@@ -177,8 +264,60 @@ img {
 }
 
 .contact__form input:focus,
-.contact__form textarea:focus {
+.contact__form textarea:focus,
+.waitlist__form input:focus,
+.waitlist__form textarea:focus,
+.waitlist__form select:focus {
   outline: 2px solid rgba(110, 242, 195, 0.4);
+}
+
+.waitlist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.waitlist__form {
+  display: grid;
+  gap: 1rem;
+}
+
+.insights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+.insights__panel {
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  background: var(--panel);
+}
+
+.insight {
+  border-radius: 1rem;
+  padding: 1rem 1.2rem;
+  margin-top: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.insight span {
+  font-weight: 600;
+  display: block;
+}
+
+.insight--positive {
+  background: rgba(110, 242, 195, 0.08);
+}
+
+.insight--warning {
+  background: rgba(255, 165, 0, 0.08);
+}
+
+.insight--neutral {
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .footer {

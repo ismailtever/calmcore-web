@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector(".contact__form");
+  const form = document.querySelector(".waitlist__form");
 
   if (!form) return;
 
@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
-
+    const name = data.name || "misafir";
     alert(
-      `Teşekkürler ${data["Adınız"] || data[Object.keys(data)[0]] || "misafir"}! ` +
-        "Mesajınızı aldık. Bu demo form ağ bağlantısı kurmaz."
+      `Teşekkürler ${name}! Calmcore beta ekibi en kısa sürede ${data.email || "sizinle"} iletişime geçecek. ` +
+        "Bu demo formu sunucuya veri göndermez."
     );
     form.reset();
   });
